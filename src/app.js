@@ -4,6 +4,5 @@ const todos = [
         completed: true,
         index: 1,
         time: 9
-
     }
 ]
