@@ -47,6 +47,21 @@ taskLi.addEventListener('click', (event) => {
     }
 })
 
+taskLi.addEventListener('click', (event) =>{
+    if(event.target.tagName === 'INPUT'){
+        const index = event.target.parentElement.querySelector('button').getAttribute('data-index');
+        tasks[index].completed = event.target.checked;
+        saveTasks();
+    }
+})
+
+clearAllBtn.addEventListener('click', () => {
+    const undoneTask = tasks.filter(task => !task.completed);
+    tasks.length = 0;
+    tasks.push(...undoneTask);
+    saveTasks();
+})
+
  
 
 
