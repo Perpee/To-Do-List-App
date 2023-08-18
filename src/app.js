@@ -39,6 +39,14 @@ function addTask(){
 }
 addTaskBtn.addEventListener('click', addTask)
 
+taskLi.addEventListener('click', (event) => {
+    if(event.target.tagName === 'BUTTON'){
+        const index = event.target.getAttribute('data-index');
+        tasks.splice(index,1);
+        saveTasks()
+    }
+})
+
  
 
 
