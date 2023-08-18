@@ -1,8 +1,47 @@
-const todos = [
-    {
-        description: 'wake up',
-        completed: true,
-        index: 1,
-        time: 9
-    }
-]
+const taskInput = document.querySelector('#task')
+const timeInput = document.querySelector('#time')
+const addTaskBtn = document.querySelector('#addTask')
+const clearAllBtn = document.querySelector('#clearAll')
+const taskLi = document.querySelector('#taskList')
+
+const tasks = JSON.parse(localStorage.getItem('key')) || [];
+console.log(tasks);
+
+
+function renderTasks(){
+    taskLi.innerHTML = '';
+    tasks.forEach((task, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+        <input type="checkbox" ${task.completed ? 'checked' : ''} />
+        <span>${task.desc} - ${task.time}</span>
+        <button data-index="${index}">Delete</button>
+      `;
+       taskLi.appendChild(li);
+    });
+};
+
+function saveTasks(){
+    localStorage.setItem('key',JSON.stringify(tasks));
+    renderTasks();
+};
+
+function addTask(){
+    const task ={
+        desc: taskInput.value,
+        time: timeInput.value,
+        completed: false
+    };
+    tasks.push(task);
+    saveTasks();
+    taskInput.value = ''
+    timeInput.value = ''
+}
+addTaskBtn.addEventListener('click', addTask)
+
+ 
+
+
+
+
+
