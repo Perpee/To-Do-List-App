@@ -105,6 +105,18 @@ navLinks.forEach(link => {
     });
 });
 
+function showTaskNotification(taskTime) {
+    const notificationPopup = document.createElement('div');
+    notificationPopup.className = 'notification-popup';
+    notificationPopup.innerHTML = `<p>Hey there, you have a task set for ${taskTime}, kindly check your task list to carry out that activity</p>`;
+    notificationPopup.style.display = 'grid'
+    document.body.appendChild(notificationPopup);
+
+    setTimeout(() => {
+        notificationPopup.remove();
+    }, 10000);
+}
+
 
 function checkAndDisplayTaskNotification() {
     const currentTime = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
