@@ -1,19 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <title>To Do List App</title>
 </head>
+
 <body>
-  <h1>My Todo</h1>
+  <header>
 
-  <input type="text" id="task" placeholder="enter task">
-  <input type="time" id="time">
-  <button id="addTask">+</button>
-  <button id="clearAll">Clear Completed Tasks</button>
+    <h2>TO-DO APP</h2>
 
-  <ul id="taskList"></ul>
-  <script src="/src/app.js"></script>
+    <nav>
+      <p id="addTodo" class="add">Add Todo</p>
+      <p id="todoList" class="list">Todo List <span class="count">0</span></p>
+      <p id="contact" class="contact">Contact</p>
+    </nav>
+  </header>
+  <main>
+    <section id="addSection">
+      <form id="form">
+        <h2>My Todo</h2>
+        <input type="text" id="task" placeholder="enter task">
+        <input type="time" id="time">
+        <button type="submit" id="addTask">+</button>
+      </form>
+    </section>
+
+    <section id="listSection" class="listSection">
+      <button id="clearAll">Clear Completed Tasks</button>
+      <ul id="taskList">
+
+      </ul>
+    </section>
+
+  </main>
+  <section id="contactSection" class="contactMe">
+    <p class="intro">Contact me below</p>
+    <section>
+      <p >Name:Toochi Obiefuna</p>
+      <p>Email:obiefuna2017@gmail.com</p>
+      <div class="socials">
+        <a href="https://wa.me/2349060692403">
+          <i class="fab fa-whatsapp"></i>
+
+        </a>
+        <a href="https://github.com/Perpee">
+          <i class="fab fa-github"></i>
+
+        </a>
+
+      </div>
+    </section>
+  </section>
+
+  <div class="notification-popup" id="notificationPopup">
+    <p id="notificationMessage"></p>
+  </div>
+
+  <script src="./src/app.js"></script>
 </body>
+
 </html>
